@@ -27,11 +27,13 @@ const Activities = () => {
                     <Button variant="primary" className="px-4">Search</Button>
                 </Form>
             </div>
-            <Row xs={1} md={4} className="g-4 mt-5">
-                {
-                    activities.map(activity => <Activity key={activity.id} activity={activity}></Activity>)
-                }
-            </Row>
+            <div className="container-fluid">
+                <Row xs={1} md={4} className="g-5 mt-5">
+                    {
+                        activities.map(activity => <Activity key={activity.id} activity={activity}></Activity>)
+                    }
+                </Row>
+            </div>
         </div>
     );
 };
