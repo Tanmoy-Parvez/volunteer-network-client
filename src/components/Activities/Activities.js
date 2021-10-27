@@ -14,8 +14,8 @@ const Activities = () => {
             })
     }, [])
     return (
-        <div>
-            <h1 className="text-uppercase">I grow by helping people in need.</h1>
+        <div style={{ marginTop: "100px" }}>
+            <h1 className="text-uppercase mt-5">I grow by helping people in need.</h1>
             <div className="container w-75 px-5 mt-4">
                 <Form className="d-flex w-50 mx-auto">
                     <FormControl

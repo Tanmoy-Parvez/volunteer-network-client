@@ -5,7 +5,7 @@ import logo from '../../images/logos/Group 1329.png'
 const Header = () => {
     return (
         <div>
-            <Navbar bg="light" variant="light">
+            <Navbar bg="light" variant="light" className="fixed-top">
                 <Container>
                     <Navbar.Brand href="#home">
                         <img
@@ -18,8 +18,11 @@ const Header = () => {
                     </Navbar.Brand>
                     <Nav className="ms-auto">
                         <Nav.Link href="#home">Home</Nav.Link>
-                        <Nav.Link href="#features">Features</Nav.Link>
-                        <Nav.Link href="#pricing">Pricing</Nav.Link>
+                        <Nav.Link href="#features">Donations</Nav.Link>
+                        <Nav.Link href="#pricing">Events</Nav.Link>
+                        <Nav.Link href="#pricing">Blogs</Nav.Link>
+                        <button className="btn btn-primary ms-2">Register</button>
+                        <button className="btn btn-dark ms-2">Admin</button>
                     </Nav>
                 </Container>
             </Navbar>
