@@ -3,6 +3,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './components/Home/Home';
 import Header from './components/Header/Header';
+import Login from './components/Login/Login';
 
 function App() {
   return (
@@ -16,6 +17,10 @@ function App() {
           <Route path="/home">
             <Home />
           </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
+
         </Switch>
       </Router>
     </div>
