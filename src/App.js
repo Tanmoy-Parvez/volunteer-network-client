@@ -5,6 +5,9 @@ import Home from './components/Home/Home';
 import Header from './components/Header/Header';
 import Login from './components/Login/Login';
 import RegisterForm from './components/RegisterForm/RegisterForm';
+import Events from './components/Events/Events';
+import Admin from './components/Admin/Admin';
+import AddActivity from './components/AddActivity/AddActivity';
 
 function App() {
   return (
@@ -17,6 +20,15 @@ function App() {
           </Route>
           <Route path="/home">
             <Home />
+          </Route>
+          <Route path="/events">
+            <Events />
+          </Route>
+          <Route path="/addForm">
+            <AddActivity />
+          </Route>
+          <Route path="/admin">
+            <Admin />
           </Route>
           <Route path="/login">
             <Login />

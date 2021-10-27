@@ -4,7 +4,7 @@ import './Home.css'
 
 const Home = () => {
     return (
-        <div className="home-container">
+        <div className="home-container overflow-hidden">
             <Activities></Activities>
         </div>
     );

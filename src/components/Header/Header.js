@@ -1,7 +1,8 @@
 import React from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import logo from '../../images/logos/Group 1329.png'
+import logo from '../../images/logos/Group 1329.png';
+import "./Header.css"
 
 const Header = () => {
     return (
@@ -17,15 +18,23 @@ const Header = () => {
                             alt="React Bootstrap logo"
                         />
                     </Navbar.Brand>
-                    <Nav className="ms-auto">
-                        <Nav.Link href="#home">Home</Nav.Link>
-                        <Nav.Link href="#features">Donations</Nav.Link>
-                        <Nav.Link href="#pricing">Events</Nav.Link>
-                        <Nav.Link href="#pricing">Blogs</Nav.Link>
+                    <Nav className="ms-auto nav-item">
+                        <Nav.Link href="">
+                            <Link to="/home">
+                                Home
+                            </Link>
+                        </Nav.Link>
+                        <Nav.Link href="">
+                            <Link to="/events">
+                                Events
+                            </Link>
+                        </Nav.Link>
                         <Link to="/login">
                             <button className="btn btn-primary ms-2">Register</button>
                         </Link>
-                        <button className="btn btn-dark ms-2">Admin</button>
+                        <Link to="/admin">
+                            <button className="btn btn-dark ms-2">Admin</button>
+                        </Link>
                     </Nav>
                 </Container>
             </Navbar>
