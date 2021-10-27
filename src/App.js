@@ -8,37 +8,40 @@ import RegisterForm from './components/RegisterForm/RegisterForm';
 import Events from './components/Events/Events';
 import Admin from './components/Admin/Admin';
 import AddActivity from './components/AddActivity/AddActivity';
+import AuthProvider from './context/AuthProvider';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 function App() {
   return (
     <div className="App">
-      <Router>
-        <Header />
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/home">
-            <Home />
-          </Route>
-          <Route path="/events">
-            <Events />
-          </Route>
-          <Route path="/addForm">
-            <AddActivity />
-          </Route>
-          <Route path="/admin">
-            <Admin />
-          </Route>
-          <Route path="/login">
-            <Login />
-          </Route>
-          <Route path="/registerForm">
-            <RegisterForm />
-          </Route>
-
-        </Switch>
-      </Router>
+      <AuthProvider>
+        <Router>
+          <Header />
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route path="/home">
+              <Home />
+            </Route>
+            <Route path="/events">
+              <Events />
+            </Route>
+            <Route path="/addForm">
+              <AddActivity />
+            </Route>
+            <Route path="/admin">
+              <Admin />
+            </Route>
+            <Route path="/login">
+              <Login />
+            </Route>
+            <PrivateRoute path="/registerForm">
+              <RegisterForm />
+            </PrivateRoute>
+          </Switch>
+        </Router>
+      </AuthProvider>
     </div>
   );
 }
