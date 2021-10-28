@@ -5,15 +5,15 @@ import useAuth from '../../hooks/useAuth';
 const Events = () => {
     const [events, setEvents] = useState([]);
     const { user } = useAuth()
-    const email = user?.email;
+
 
     useEffect(() => {
-        fetch(`http://localhost:5000/registerEvents/${email}`)
+        fetch(`http://localhost:5000/registerEvents/${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setEvents(data);
             })
-    }, [])
+    }, [user?.email])
     return (
         <div className="container mt-5">
             <h1 className="marginTop">Your registered events: {events.length}</h1>
