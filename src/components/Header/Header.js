@@ -1,10 +1,12 @@
 import React from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import useAuth from '../../hooks/useAuth';
 import logo from '../../images/logos/Group 1329.png';
 import "./Header.css"
 
 const Header = () => {
+    const { user, logOut } = useAuth();
     return (
         <div>
             <Navbar bg="light" variant="light" className="fixed-top">
@@ -29,12 +31,28 @@ const Header = () => {
                                 Events
                             </Link>
                         </Nav.Link>
-                        <Link to="/login">
-                            <button className="btn btn-primary ms-2">Register</button>
+
+                        {user?.email ?
+                            <div className="d-flex">
+                                <Nav.Link>
+                                    <Link to="/home" className="text-success">
+                                        {user?.displayName}
+                                    </Link>
+                                </Nav.Link>
+                                <button onClick={logOut} className="btn btn-danger ms-2"><i className="fas fa-sign-out-alt"></i></button>
+                            </div>
+                            :
+                            <Link to="/login">
+                                <button className="btn btn-primary ms-2">Login</button>
+                            </Link>
+                        }
+                        <Link to="/registerForm">
+                            <button className="btn btn-dark ms-2">Register</button>
                         </Link>
                         <Link to="/admin">
                             <button className="btn btn-dark ms-2">Admin</button>
                         </Link>
+
                     </Nav>
                 </Container>
             </Navbar>
