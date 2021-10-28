@@ -4,11 +4,11 @@ import { useHistory } from 'react-router';
 
 const Activity = (props) => {
     const history = useHistory();
-    const { title, img } = props.activity;
+    const { title, img, _id } = props.activity;
     const hex = "#" + Math.floor(Math.random() * 16777215).toString(16);
 
     const handleOnClick = (e) => {
-        history.push('/registerForm')
+        history.push(`/registerForm/${_id}`)
     }
     return (
         <div>

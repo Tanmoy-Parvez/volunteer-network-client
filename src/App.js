@@ -36,7 +36,7 @@ function App() {
             <Route path="/login">
               <Login />
             </Route>
-            <PrivateRoute path="/registerForm">
+            <PrivateRoute path="/registerForm/:id">
               <RegisterForm />
             </PrivateRoute>
           </Switch>

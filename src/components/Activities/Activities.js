@@ -7,7 +7,7 @@ import Activity from '../Activity/Activity';
 const Activities = () => {
     const [activities, setActivities] = useState([]);
     useEffect(() => {
-        fetch("/fakeData.json")
+        fetch("http://localhost:5000/events")
             .then(res => res.json())
             .then(data => {
                 setActivities(data);
