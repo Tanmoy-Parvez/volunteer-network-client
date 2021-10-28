@@ -3,10 +3,15 @@ import logo from '../../images/logos/Group 1329.png';
 import { useForm } from "react-hook-form";
 import { useParams } from 'react-router';
 import useAuth from '../../hooks/useAuth';
+import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 
 const RegisterForm = () => {
     const { id } = useParams();
+    const { register, handleSubmit, reset } = useForm();
     const [event, setEvent] = useState({});
     const { user } = useAuth();
 
@@ -16,10 +21,19 @@ const RegisterForm = () => {
             .then(data => setEvent(data))
     }, [])
 
-    const { register, handleSubmit } = useForm();
-    const onSubmit = data => console.log(data);
+    const onSubmit = data => {
+        axios.post("http://localhost:5000/event", data)
+            .then(res => {
+                if (res.data.insertedId) {
+                    toast("Successfully Registered!")
+                    reset()
+                };
+            })
+        console.log(data)
+    };
     return (
         <div className="container mt-5">
+            <ToastContainer />
             <img src={logo} alt="" className="w-25 mt-3" />
             <div className="w-50 mt-3 border rounded-3 mx-auto shadow-lg" style={{ height: "450px", paddingTop: "10px" }}>
                 <h3 className="my-3">Register as a Volunteer</h3>
@@ -49,7 +63,7 @@ const RegisterForm = () => {
                     />
                     <input
                         defaultValue={event.title}
-                        {...register("activity")}
+                        {...register("activity", { required: true })}
                         className="form-control w-75 mx-auto border-bottom border-dark border-top-0 border-start-0 border-end-0 mb-2"
                         placeholder="Activity"
                     />
